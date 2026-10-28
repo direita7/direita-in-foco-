@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Virada: como Lula venceu 2026 — ebook</title>
+<style>
+:root{
+  --shout:#FDE047; --void:#052E16; --surface:#0B4A24; --ui:#14663A; --white:#FFFFFF;
+  --ease:cubic-bezier(.22,1,.36,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--shout:#FDE047;--void:#052E16;--surface:#0B4A24;--ui:#14663A;--white:#FFFFFF;color-scheme:dark}}
+:root[data-theme="dark"]{--shout:#FDE047;--void:#052E16;--surface:#0B4A24;--ui:#14663A;--white:#FFFFFF}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--void);color:var(--white);font-family:"Inter","General Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--shout);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.label{font-size:10px;text-transform:uppercase;letter-spacing:.22em;font-weight:600}
+
+/* nav */
+nav{position:absolute;top:0;left:0;right:0;z-index:5;padding:22px 0}
+nav .wrap{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.03em;color:var(--void)}
+.pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 26px;font-weight:600;font-size:14px;border:2px solid transparent;cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.pill:hover{transform:scale(1.05);box-shadow:0 12px 28px rgba(0,0,0,.3)}
+.pill:active{transform:scale(.95)}
+.pill.black{background:var(--void);color:#fff}
+.pill.yellow{background:var(--shout);color:var(--void)}
+.pill.outline{border-color:rgba(5,46,22,.2);color:var(--void)}
+.pill.sm{padding:9px 18px;font-size:13px}
+
+/* hero */
+.hero{background:var(--shout);color:var(--void);border-radius:0 0 120px 40px;padding:150px 0 120px;position:relative;z-index:2}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(56px,9.5vw,132px);line-height:.88;font-weight:800;letter-spacing:-.05em}
+.hero h2{font-size:clamp(20px,2.3vw,28px);font-weight:500;opacity:.8;line-height:1.25;margin:28px 0 18px;max-width:30ch;letter-spacing:-.01em}
+.hero p.lead{max-width:46ch;opacity:.8;margin-bottom:34px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.badge{display:inline-flex;gap:8px;align-items:center;background:var(--void);color:var(--shout);border-radius:999px;padding:7px 14px;font-size:10px;text-transform:uppercase;letter-spacing:.18em;font-weight:600}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--shout)}
+
+.stage{position:relative;min-height:590px}
+.emblem{position:absolute;width:min(460px,98%);height:auto;aspect-ratio:20/14;right:0;top:0;border-radius:140px 32px 140px 32px;border:1px solid rgba(255,255,255,.25);overflow:hidden;box-shadow:0 25px 50px -12px rgba(5,46,22,.55);animation:wave 8s ease-in-out infinite}
+@keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}50%{transform:rotate(-3deg) translateY(-8px)}}}
+.blob{position:absolute;background:var(--void);border-radius:58% 42% 55% 45%/48% 58% 42% 52}
+.blob.b1{width:330px;height:330px;right:-30px;top:-10px}
+.blob.b2{width:170px;height:170px;left:10px;bottom:10px;border-radius:50%}
+.glass{position:relative;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,.2);border-radius:32px;box-shadow:0 25px 50px -12px rgba(0,0,0,.45);color:#fff}
+.hero .glass{position:absolute;inset:210px 0 0 40px;padding:28px;background:rgba(5,46,22,.55);animation:drift 9s ease-in-out infinite}
+.glass .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:20px}
+.glass .top span.label{opacity:.7}
+.round{margin-bottom:22px}
+.round .label{display:block;opacity:.6;margin-bottom:8px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.duo b{display:block;font-size:clamp(34px,4vw,50px);letter-spacing:-.04em;line-height:1;font-weight:800}
+.duo small{font-size:12px;opacity:.7}
+.duo .win b{color:var(--shout)}
+.glass hr{border:0;border-top:1px solid rgba(255,255,255,.2);margin:0 0 22px}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* hero entrance (única sequência orquestrada) */
+.hero .in{opacity:0;transform:translateY(60px);animation:rise 1.1s var(--ease) forwards}
+.hero .in:nth-child(2){animation-delay:.12s}.hero .in:nth-child(3){animation-delay:.24s}.hero .in:nth-child(4){animation-delay:.36s}
+.stage.in{animation-delay:.3s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* void */
+.void{overflow:hidden;padding:150px 0 110px;margin-top:-90px;position:relative}
+.sec-head{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-head h2{font-size:clamp(40px,6vw,84px);line-height:.92;letter-spacing:-.045em;font-weight:800}
+.sec-head p{opacity:.7;max-width:44ch}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.ch{grid-column:span 2;background:var(--surface);border:1px solid rgba(255,255,255,.08);border-radius:32px;padding:30px;display:flex;flex-direction:column;gap:14px;transition:transform .5s var(--ease)}
+.ch.w3{grid-column:span 3}.ch.w4{grid-column:span 4}
+.ch .top{display:flex;justify-content:space-between;align-items:center}
+.ch .n{font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:1;color:var(--shout)}
+.ch .tag{background:var(--ui);border-radius:999px;padding:5px 12px}
+.ch h3{font-size:clamp(20px,2vw,26px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
+.ch p{opacity:.72;font-size:14px}
+.ch ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.ch li{border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:4px 12px;font-size:12px}
+.ch.hot{background:var(--shout);color:var(--void);border-color:transparent}
+.ch.hot .n{color:var(--void)}.ch.hot .tag{background:var(--void);color:var(--shout)}.ch.hot li{border-color:rgba(5,46,22,.25)}
+.ch.glassy{background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(40px);backdrop-filter:blur(40px);border-color:rgba(255,255,255,.2)}
+
+/* yellow liquid #2 */
+.lessons{background:var(--shout);color:var(--void);border-radius:120px 40px 120px 40px;padding:110px 0;position:relative;z-index:2}
+.lessons .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.lessons h2{font-size:clamp(44px,7vw,100px);line-height:.88;letter-spacing:-.05em;font-weight:800}
+.lessons p.sub{font-size:20px;font-weight:500;opacity:.8;line-height:1.3;margin-top:24px;max-width:26ch}
+.lessons ol{list-style:none;padding:0;display:grid;gap:10px;counter-reset:l}
+.lessons li{counter-increment:l;display:flex;align-items:center;gap:16px;background:rgba(5,46,22,.08);border:2px solid rgba(5,46,22,.12);border-radius:999px;padding:14px 26px 14px 14px;font-weight:600;font-size:15px;letter-spacing:-.01em}
+.lessons li::before{content:counter(l);display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--void);color:var(--shout);font-size:13px;font-weight:700}
+
+/* other side + quote */
+.other{padding:130px 0 60px;margin-top:-80px}
+.other .wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.other .glass{padding:38px;background:rgba(255,255,255,.07)}
+.other h3{font-size:clamp(28px,3.4vw,44px);line-height:1;letter-spacing:-.04em;margin:12px 0 14px;font-weight:800}
+.other p{opacity:.75}
+.other .big{background:var(--shout);color:var(--void);border-radius:32px;padding:38px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.other .big b{font-size:clamp(40px,5.5vw,76px);line-height:.9;letter-spacing:-.05em;font-weight:800}
+
+/* ticker */
+.ticker{overflow:hidden;margin:70px 0 0;border-block:1px solid rgba(255,255,255,.1);padding:22px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.ticker div{display:flex;gap:56px;width:max-content;animation:tick 40s linear infinite}
+.ticker span{font-weight:800;font-size:22px;letter-spacing:-.03em;color:#fff;opacity:.4;white-space:nowrap}
+@keyframes tick{to{transform:translateX(-50%)}}
+.tick-note{text-align:center;margin-top:14px;opacity:.5}
+
+/* final */
+.final{padding:110px 0 50px}
+.final .card{background:var(--shout);color:var(--void);border-radius:100px 32px 100px 32px;padding:70px 56px;display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center}
+.final h2{font-size:clamp(40px,6vw,84px);line-height:.9;letter-spacing:-.05em;font-weight:800}
+.final p{opacity:.8;margin:18px 0 26px;max-width:42ch}
+.final .side{display:grid;gap:12px;justify-items:start}
+.flagbar{display:flex;gap:8px;height:12px;margin:60px 28px 0}.flagbar::before,.flagbar::after,.flagbar i{content:"";border-radius:999px}.flagbar::before{flex:4;background:#0E7A3A}.flagbar i{flex:2;background:var(--shout)}.flagbar::after{flex:1;background:#0B2A6F}
+.void::before{content:"";position:absolute;right:-120px;top:40px;width:520px;height:520px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,2 98,50 50,98 2,50' fill='none' stroke='%23FDE047' stroke-width='.5'/%3E%3Ccircle cx='50' cy='50' r='23' fill='none' stroke='%23FDE047' stroke-width='.5'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.35}
+footer{padding:30px 0 40px;opacity:.5;font-size:12px}
+
+@media (max-width:900px){
+  .hero{border-radius:0 0 80px 32px;padding:120px 0 90px}
+  .hero .wrap,.lessons .wrap,.sec-head,.other .wrap,.final .card{grid-template-columns:1fr}
+  .stage{min-height:580px}
+  .hero .glass{inset:200px 0 0 0}
+  .ch,.ch.w3,.ch.w4{grid-column:span 6}
+  .lessons{border-radius:80px 32px 80px 32px}
+  .final .card{border-radius:70px 28px 70px 28px;padding:48px 28px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero .in{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">A Virada</a>
+  <a class="pill black sm" href="#baixar">Quero o ebook</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="label in" style="margin-bottom:22px">Ebook · Eleição 2026</p>
+      <h1 class="in">A Virada:</h1>
+      <h2 class="in">Como Lula venceu 2026 e o que a direita precisa entender.</h2>
+      <div class="in">
+        <p class="lead">Flávio Bolsonaro terminou o primeiro turno na frente. Vinte e um dias depois, Lula foi reeleito. Este ebook mostra, sem choro e sem teoria maluca, como o jogo virou.</p>
+        <div class="cta">
+          <a class="pill black" href="#baixar">Quero ler o ebook</a>
+          <a class="pill outline" href="#capitulos">Ver os assuntos</a>
+        </div>
+        <div class="badges">
+          <span class="badge"><i></i>Dados do TSE</span>
+          <span class="badge"><i></i>11 fontes</span>
+          <span class="badge"><i></i>Inclui o outro lado</span>
+        </div>
+      </div>
+    </div>
+    <div class="stage in" aria-label="Resumo do resultado">
+      <svg class="emblem" viewBox="0 0 200 140" role="img" aria-label="Bandeira do Brasil"><defs><clipPath id="g"><circle cx="100" cy="70" r="35"/></clipPath><path id="band" d="M63 84 Q100 74 137 52"/></defs><rect width="200" height="140" fill="#0E7A3A"/><polygon points="100,17 183,70 100,123 17,70" fill="#FDE047"/><circle cx="100" cy="70" r="35" fill="#0B2A6F"/><g clip-path="url(#g)"><g fill="#fff"><polygon points="84.0,43.4 84.6,45.2 86.5,45.2 84.9,46.3 85.5,48.1 84.0,47.0 82.5,48.1 83.1,46.3 81.5,45.2 83.4,45.2"/><polygon points="97.0,38.8 97.5,40.3 99.1,40.3 97.8,41.3 98.3,42.8 97.0,41.8 95.7,42.8 96.2,41.3 94.9,40.3 96.5,40.3"/><polygon points="110.0,40.4 110.6,42.2 112.5,42.2 110.9,43.3 111.5,45.1 110.0,44.0 108.5,45.1 109.1,43.3 107.5,42.2 109.4,42.2"/><polygon points="122.0,47.8 122.5,49.3 124.1,49.3 122.8,50.3 123.3,51.8 122.0,50.8 120.7,51.8 121.2,50.3 119.9,49.3 121.5,49.3"/><polygon points="74.0,54.8 74.5,56.3 76.1,56.3 74.8,57.3 75.3,58.8 74.0,57.8 72.7,58.8 73.2,57.3 71.9,56.3 73.5,56.3"/><polygon points="92.0,50.2 92.4,51.4 93.7,51.4 92.7,52.2 93.1,53.5 92.0,52.7 90.9,53.5 91.3,52.2 90.3,51.4 91.6,51.4"/><polygon points="104.0,50.0 104.4,51.4 105.9,51.4 104.7,52.2 105.2,53.6 104.0,52.8 102.8,53.6 103.3,52.2 102.1,51.4 103.6,51.4"/><polygon points="116.0,55.2 116.4,56.4 117.7,56.4 116.7,57.2 117.1,58.5 116.0,57.7 114.9,58.5 115.3,57.2 114.3,56.4 115.6,56.4"/><polygon points="131.0,56.2 131.4,57.4 132.7,57.4 131.7,58.2 132.1,59.5 131.0,58.7 129.9,59.5 130.3,58.2 129.3,57.4 130.6,57.4"/><polygon points="66.0,64.2 66.4,65.4 67.7,65.4 66.7,66.2 67.1,67.5 66.0,66.7 64.9,67.5 65.3,66.2 64.3,65.4 65.6,65.4"/><polygon points="86.0,58.4 86.4,59.5 87.5,59.5 86.6,60.2 86.9,61.3 86.0,60.6 85.1,61.3 85.4,60.2 84.5,59.5 85.6,59.5"/><polygon points="100.0,58.6 100.5,60.3 102.3,60.3 100.9,61.3 101.4,62.9 100.0,61.9 98.6,62.9 99.1,61.3 97.7,60.3 99.5,60.3"/><polygon points="78.0,85.8 78.5,87.3 80.1,87.3 78.8,88.3 79.3,89.8 78.0,88.8 76.7,89.8 77.2,88.3 75.9,87.3 77.5,87.3"/><polygon points="90.0,92.4 90.6,94.2 92.5,94.2 90.9,95.3 91.5,97.1 90.0,96.0 88.5,97.1 89.1,95.3 87.5,94.2 89.4,94.2"/><polygon points="103.0,95.8 103.5,97.3 105.1,97.3 103.8,98.3 104.3,99.8 103.0,98.8 101.7,99.8 102.2,98.3 100.9,97.3 102.5,97.3"/><polygon points="116.0,90.6 116.5,92.3 118.3,92.3 116.9,93.3 117.4,94.9 116.0,93.9 114.6,94.9 115.1,93.3 113.7,92.3 115.5,92.3"/><polygon points="127.0,83.0 127.4,84.4 128.9,84.4 127.7,85.2 128.2,86.6 127.0,85.8 125.8,86.6 126.3,85.2 125.1,84.4 126.6,84.4"/><polygon points="70.0,78.2 70.4,79.4 71.7,79.4 70.7,80.2 71.1,81.5 70.0,80.7 68.9,81.5 69.3,80.2 68.3,79.4 69.6,79.4"/><polygon points="98.0,85.0 98.7,87.1 100.9,87.1 99.1,88.4 99.8,90.4 98.0,89.1 96.2,90.4 96.9,88.4 95.1,87.1 97.3,87.1"/><polygon points="110.0,82.2 110.4,83.4 111.7,83.4 110.7,84.2 111.1,85.5 110.0,84.7 108.9,85.5 109.3,84.2 108.3,83.4 109.6,83.4"/><polygon points="84.0,100.2 84.4,101.4 85.7,101.4 84.7,102.2 85.1,103.5 84.0,102.7 82.9,103.5 83.3,102.2 82.3,101.4 83.6,101.4"/><polygon points="122.0,74.2 122.4,75.4 123.7,75.4 122.7,76.2 123.1,77.5 122.0,76.7 120.9,77.5 121.3,76.2 120.3,75.4 121.6,75.4"/><polygon points="95.0,104.4 95.4,105.5 96.5,105.5 95.6,106.2 95.9,107.3 95.0,106.6 94.1,107.3 94.4,106.2 93.5,105.5 94.6,105.5"/><polygon points="108.0,106.2 108.4,107.4 109.7,107.4 108.7,108.2 109.1,109.5 108.0,108.7 106.9,109.5 107.3,108.2 106.3,107.4 107.6,107.4"/><polygon points="131.0,70.4 131.4,71.5 132.5,71.5 131.6,72.2 131.9,73.3 131.0,72.6 130.1,73.3 130.4,72.2 129.5,71.5 130.6,71.5"/><polygon points="75.0,94.4 75.4,95.5 76.5,95.5 75.6,96.2 75.9,97.3 75.0,96.6 74.1,97.3 74.4,96.2 73.5,95.5 74.6,95.5"/><polygon points="118.0,100.4 118.4,101.5 119.5,101.5 118.6,102.2 118.9,103.3 118.0,102.6 117.1,103.3 117.4,102.2 116.5,101.5 117.6,101.5"/></g><path d="M63 84 Q100 74 137 52" fill="none" stroke="#fff" stroke-width="7.5"/></g><text font-family="Inter,Arial,sans-serif" font-weight="700" font-size="4.4" letter-spacing=".5" fill="#0E7A3A"><textPath href="#band" startOffset="50%" text-anchor="middle">ORDEM E PROGRESSO</textPath></text></svg>
+      <div class="glass">
+        <div class="top"><span class="label">Votos válidos</span><span class="pill yellow sm" style="cursor:default">+4,4 mi de diferença</span></div>
+        <div class="round">
+          <span class="label">1º turno · 4 de outubro</span>
+          <div class="duo"><div class="win"><b>47,03%</b><small>Flávio Bolsonaro</small></div><div><b>45,16%</b><small>Lula</small></div></div>
+        </div>
+        <hr>
+        <div class="round" style="margin-bottom:0">
+          <span class="label">2º turno · 25 de outubro</span>
+          <div class="duo"><div class="win"><b>51,79%</b><small>Lula</small></div><div><b>48,21%</b><small>Flávio Bolsonaro</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="void" id="capitulos">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>O que você vai entender</h2>
+      <p>Uma prévia de cada capítulo. A análise completa, com números, bastidores e fontes, está no ebook.</p>
+    </div>
+    <div class="grid">
+      <article class="ch hot w3">
+        <div class="top"><span class="n">00</span><span class="tag label">Introdução</span></div>
+        <h3>3,5 pontos que mudaram tudo</h3>
+        <p>A primeira vez na história em que o segundo colocado do primeiro turno venceu a eleição presidencial. E por que isso foi estratégia, não milagre.</p>
+      </article>
+      <article class="ch w3">
+        <div class="top"><span class="n">01</span><span class="tag label">Capítulo</span></div>
+        <h3>Os números que contam a história</h3>
+        <p>De quem trocou de lado a quem apareceu para votar: para onde foram os votos dos candidatos eliminados e como Minas Gerais virou.</p>
+        <ul><li>Abstenção</li><li>Minas Gerais</li><li>São Paulo</li></ul>
+      </article>
+      <article class="ch glassy" style="grid-column:span 6">
+        <div class="top"><span class="n">02</span><span class="tag label">Capítulo</span></div>
+        <h3>O que Lula fez para virar</h3>
+        <p>Cinco movimentos dentro das regras do jogo, que a direita precisa conhecer.</p>
+        <ul><li>Eleitor que ficou em casa</li><li>Plebiscito sobre o sobrenome</li><li>Votos dos eliminados</li><li>Vitrine do governo</li><li>Guerra no Sudeste</li></ul>
+      </article>
+      <article class="ch" style="grid-column:span 6">
+        <div class="top"><span class="n">03</span><span class="tag label">Bastidores</span></div>
+        <h3>Janones, Nordeste, Master, debates e Marçal</h3>
+        <p>O canal “Exército do Lula” e a guerra do WhatsApp, o medo de perder direitos no Nordeste, o caso Banco Master, os debates do segundo turno e o papel de Pablo Marçal.</p>
+        <ul><li>Exército do Lula</li><li>Medo no Nordeste</li><li>Banco Master</li><li>Debates</li><li>Pablo Marçal</li></ul>
+      </article>
+      <article class="ch w3">
+        <div class="top"><span class="n">04</span><span class="tag label">Capítulo</span></div>
+        <h3>As narrativas da esquerda que a direita contesta</h3>
+        <p>Democracia em risco, economia ótima, picanha, combate às fake news e “Lula foi inocentado”: o que cada uma diz e como a direita responde.</p>
+      </article>
+      <article class="ch w3">
+        <div class="top"><span class="n">05</span><span class="tag label">Capítulo</span></div>
+        <h3>Por que o sobrenome Bolsonaro é tão rejeitado</h3>
+        <p>A pergunta mais incômoda para a direita: os fatos que pesam, como a base enxerga a rejeição e por que o eleitor de centro decide a eleição.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lessons" id="licoes">
+  <div class="wrap">
+    <div>
+      <p class="label" style="margin-bottom:18px">Capítulo 06</p>
+      <h2>Lições rumo a 2030</h2>
+      <p class="sub">Sete pontos para quem quer vencer a próxima.</p>
+    </div>
+    <ol>
+      <li>Base não ganha eleição sozinha</li>
+      <li>Participação importa tanto quanto convencimento</li>
+      <li>Rede antes da hora</li>
+      <li>Quem é o rosto?</li>
+      <li>Proposta, não só reação</li>
+      <li>Ganhar a capital e o Nordeste</li>
+      <li>Credibilidade é arma</li>
+    </ol>
+  </div>
+</section>
+
+<section class="other">
+  <div class="wrap">
+    <div class="glass">
+      <span class="label" style="opacity:.6">Capítulo 07</span>
+      <h3>O outro lado, para você não ser pego de surpresa</h3>
+      <p>Os argumentos que a esquerda e analistas de centro vão usar contra as teses do livro: vitória, economia, condenação de Bolsonaro, fake news, Lava Jato e Banco Master. Conhecer não é concordar. É estar preparado.</p>
+    </div>
+    <div class="big">
+      <span class="label">Capítulo 08 · Conclusão</span>
+      <b>48% não é derrota. É ponto de partida.</b>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="baixar">
+  <div class="wrap">
+    <div class="card">
+      <div>
+        <h2>Quem entende o adversário não perde duas vezes do mesmo jeito.</h2>
+        <p>Leia o ebook completo e chegue em 2030 sabendo o que mudou.</p>
+        <a class="pill black" href="#baixar">Quero ler o ebook</a>
+      </div>
+      <div class="side">
+        <span class="badge"><i></i>9 capítulos</span>
+        <span class="badge"><i></i>Números oficiais do TSE</span>
+        <span class="badge"><i></i>Fontes citadas</span>
+      </div>
+    </div>
+
+    <div class="ticker" aria-label="Fontes citadas no ebook">
+      <div>
+        <span>TSE</span><span>TRE-SP</span><span>Gazeta do Povo</span><span>Congresso em Foco</span><span>Nexo Jornal</span><span>Poder360</span><span>CNN Brasil</span><span>Agência Pública</span><span>Brasil de Fato</span><span>Jovem Pan</span><span>Ric.com.br</span>
+        <span>TSE</span><span>TRE-SP</span><span>Gazeta do Povo</span><span>Congresso em Foco</span><span>Nexo Jornal</span><span>Poder360</span><span>CNN Brasil</span><span>Agência Pública</span><span>Brasil de Fato</span><span>Jovem Pan</span><span>Ric.com.br</span>
+      </div>
+    </div>
+    <p class="tick-note label">Fontes citadas no ebook</p>
+  </div>
+</section>
+</main>
+
+<div class="flagbar"><i></i></div>
+<footer><div class="wrap">A Virada: como Lula venceu 2026 e o que a direita precisa entender.</div></footer>
+</body>
+</html>
